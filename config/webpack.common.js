@@ -12,7 +12,7 @@ let config = {
 		new HtmlWebpackPlugin({
             filename: "index.html",
             template: "./src/index.html",
-            inject: "head"
+            inject: "body"
 		}),
 	],
 };

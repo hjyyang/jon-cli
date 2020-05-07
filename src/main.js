@@ -1,4 +1,7 @@
-function test() {
-	console.log("this is test function!");
-}
-console.log(1232321)
+import Vue from "vue";
+import App from "./App.vue";
+
+new Vue({
+    el: "#app",
+    render: (h) => h(App),
+});
