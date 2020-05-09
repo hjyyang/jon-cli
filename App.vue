@@ -1,0 +1,15 @@
+<template>
+    <div class="root">
+        <header>this is head</header>
+        <main>this is main</main>
+        <footer>this is footer</footer>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {};
+    },
+};
+</script>
