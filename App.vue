@@ -9,7 +9,18 @@
 <script>
 export default {
     data() {
-        return {};
+        return {
+
+        };
     },
+    mounted(){
+        console.log(123)
+    }
 };
 </script>
+
+<style lang="scss">
+    body{
+        background-color: cadetblue;
+    }
+</style>

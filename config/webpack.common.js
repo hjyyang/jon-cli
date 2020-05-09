@@ -15,7 +15,7 @@ let config = {
             template: path.resolve(__dirname, "../index.html"),
             inject: "body",
         }),
-        new VueLoaderPlugin(),
+        new VueLoaderPlugin()
     ],
     module: {
         //文件处理loader
@@ -26,6 +26,26 @@ let config = {
                 use: [
                     //使用vue-loader加载器
                     "vue-loader",
+                ],
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                exclude: /node_modules/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            config: {
+                                path: path.resolve(
+                                    __dirname,
+                                    "./postcss.config.js"
+                                ),
+                            },
+                        },
+                    },
+                    "sass-loader",
                 ],
             },
         ],

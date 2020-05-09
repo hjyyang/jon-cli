@@ -9,7 +9,8 @@ let devConfig = merge(common, {
         port: 3000,
         // open: true,
         host: "0.0.0.0",
-    }
+    },
+    devtool: 'inline-source-map',
 });
 
 module.exports = devConfig;

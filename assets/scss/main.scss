@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0px;
+    header {
+        display: flex;
+        height: 80px;
+        background-color: papayawhip;
+        transform: scale(1);
+        &::before {
+            content: "123";
+        }
+    }
+    footer {
+        height: 80px;
+        background-color: seagreen;
+    }
+}
