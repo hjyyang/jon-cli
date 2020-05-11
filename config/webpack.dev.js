@@ -10,7 +10,37 @@ let devConfig = merge(common, {
         // open: true,
         host: "0.0.0.0",
     },
-    devtool: 'inline-source-map',
+    mode: "development",
+    devtool: "eval-source-map",
+    module: {
+        //文件处理loader
+        rules: [
+            {
+                test: /\.(sa|sc|c)ss$/,
+                exclude: /node_modules/,
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            config: {
+                                path: path.resolve(
+                                    __dirname,
+                                    "./postcss.config.js"
+                                ),
+                            },
+                        },
+                    },
+                    "sass-loader",
+                ],
+            },
+        ],
+    },
 });
-
 module.exports = devConfig;
