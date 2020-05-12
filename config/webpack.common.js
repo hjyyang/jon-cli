@@ -59,10 +59,7 @@ let config = {
                         options: {
                             limit: 8192,
                             esModule: false,
-                            name:
-                                process.env.NODE_ENV == "development"
-                                    ? "[path][name].[ext]"
-                                    : "image/[name].[ext]",
+                            name: "[path][name].[ext]",
                         },
                     },
                 ],
