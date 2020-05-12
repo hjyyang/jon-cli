@@ -8,10 +8,3 @@ new Vue({
     el: "#app",
     render: (h) => h(App),
 });
-
-
-let abc = () => {
-    console.log("this is hahhahahahaha");
-};
-
-console.log(abc)

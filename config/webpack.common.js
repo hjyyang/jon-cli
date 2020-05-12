@@ -49,6 +49,13 @@ let config = {
                     },
                 },
             },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                loader: "file-loader",
+                options: {
+                    name: "image/[name][hash:7].[ext]",
+                },
+            },
         ],
     },
 };

@@ -1,26 +1,25 @@
 <template>
     <div class="root">
         <header>this is head</header>
-        <main>this is main</main>
+        <main><img :src="img" alt=""></main>
         <footer>this is footer</footer>
     </div>
 </template>
 
 <script>
+import image from "./assets/image/test.png"
 export default {
     data() {
         return {
-
+            img: image
         };
     },
-    mounted(){
-        console.log(123)
-    }
+    mounted() {},
 };
 </script>
 
 <style lang="scss">
-    body{
-        background-color: cadetblue;
-    }
+body {
+    background-color: cadetblue;
+}
 </style>
