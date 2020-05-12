@@ -4,7 +4,8 @@ body {
     header {
         display: flex;
         height: 80px;
-        background-color: papayawhip;
+        // background-color: papayawhip;
+        // background: url(../image/test.png);
         transform: scale(1);
         &::before {
             content: "123";

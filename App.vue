@@ -1,18 +1,19 @@
 <template>
     <div class="root">
-        <header>this is head</header>
-        <main><img :src="img" alt=""></main>
+        <header style="background: url(./assets/image/test.png);">
+            this is head
+        </header>
+        <main>
+            <img src="./assets/image/test.png" alt="" />
+        </main>
         <footer>this is footer</footer>
     </div>
 </template>
 
 <script>
-import image from "./assets/image/test.png"
 export default {
     data() {
-        return {
-            img: image
-        };
+        return {};
     },
     mounted() {},
 };
@@ -20,6 +21,6 @@ export default {
 
 <style lang="scss">
 body {
-    background-color: cadetblue;
+    // background-color: cadetblue;
 }
 </style>

@@ -1,4 +1,5 @@
 header{
     background-color: aliceblue;
+    /* background: url(../image/test.png); */
     display: flex;
 }

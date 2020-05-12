@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 let config = {
     entry: path.resolve(__dirname, "../main.js"),
@@ -15,6 +16,7 @@ let config = {
             inject: "body",
         }),
         new VueLoaderPlugin(),
+        new CleanWebpackPlugin(),
     ],
     module: {
         //文件处理loader
@@ -50,11 +52,20 @@ let config = {
                 },
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
-                loader: "file-loader",
-                options: {
-                    name: "image/[name][hash:7].[ext]",
-                },
+                test: /\.(png|jpg|gif|jpeg)$/i,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 8192,
+                            esModule: false,
+                            name:
+                                process.env.NODE_ENV == "development"
+                                    ? "[path][name].[ext]"
+                                    : "image/[name].[ext]",
+                        },
+                    },
+                ],
             },
         ],
     },
