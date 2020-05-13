@@ -4,16 +4,31 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 let config = {
-    entry: path.resolve(__dirname, "../main.js"),
+    entry: {
+        home: path.resolve(__dirname, "../pages/home/index.js"),
+        test: path.resolve(__dirname, "../pages/test/index.js"),
+    },
     output: {
         path: path.resolve(__dirname, "../dist"),
-        filename: "bundle[hash].js",
+        filename: "js/[name][hash:6].bundle.js",
+    },
+    optimization: {
+        splitChunks: {
+            chunks: "all",
+        },
     },
     plugins: [
         new HtmlWebpackPlugin({
             filename: "index.html",
-            template: path.resolve(__dirname, "../index.html"),
+            template: path.resolve(__dirname, "../pages/home/index.html"),
             inject: "body",
+            chunks: ["home"],
+        }),
+        new HtmlWebpackPlugin({
+            filename: "test.html",
+            template: path.resolve(__dirname, "../pages/test/index.html"),
+            inject: "body",
+            chunks: ["test"],
         }),
         new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
