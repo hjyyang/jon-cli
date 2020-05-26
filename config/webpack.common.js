@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 let config = {
@@ -15,22 +14,13 @@ let config = {
             template: path.resolve(__dirname, "../index.html"),
             inject: "body",
         }),
-        new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
     ],
     module: {
         //文件处理loader
         rules: [
             {
-                test: /(\.vue)$/, //正则表达式匹配规则
-                exclude: /node_modules/, //排除项目依赖包目录
-                use: [
-                    //使用vue-loader加载器
-                    "vue-loader",
-                ],
-            },
-            {
-                test: /\.m?js$/,
+                test: /\.(m?js|jsx?)$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: "babel-loader",
@@ -46,6 +36,7 @@ let config = {
                                     },
                                 },
                             ],
+                            ["@babel/preset-react"],
                         ],
                         cacheDirectory: true,
                     },
