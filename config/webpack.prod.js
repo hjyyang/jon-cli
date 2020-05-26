@@ -2,11 +2,16 @@ const path = require("path");
 const common = require("./webpack.common");
 const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 let proConfig = merge(common, {
-    mode: "production",
+    // mode: "production",
     devtool: "#source-map",
-    plugins: [new MiniCssExtractPlugin()],
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "[name][hash:7].css",
+        }),
+    ],
     module: {
         //文件处理loader
         rules: [
@@ -30,6 +35,19 @@ let proConfig = merge(common, {
                     "sass-loader",
                 ],
             },
+        ],
+    },
+    optimization: {
+        minimizer: [
+            new TerserPlugin({
+                //清除
+                sourceMap: true, // Must be set to true if using source-maps in production
+                terserOptions: {
+                    compress: {
+                        drop_console: true,
+                    },
+                },
+            }),
         ],
     },
 });
