@@ -47,6 +47,8 @@ let config = {
                                 },
                             ],
                         ],
+                        //避免使用generators/async 函数时造成全局污染
+                        plugins: ["@babel/plugin-transform-runtime"],
                         cacheDirectory: true,
                     },
                 },

@@ -1,12 +1,11 @@
 <template>
     <div class="root">
-        <header style="background: url(./assets/image/test.png);">
+        <header>
             this is head
         </header>
-        <main>
-            <img src="./assets/image/test.png" alt="" />
-        </main>
-        <footer>this is footer</footer>
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
     </div>
 </template>
 
@@ -16,11 +15,7 @@ export default {
         return {};
     },
     mounted() {},
+    methods: {},
+    watch: {},
 };
 </script>
-
-<style lang="scss">
-body {
-    // background-color: cadetblue;
-}
-</style>
